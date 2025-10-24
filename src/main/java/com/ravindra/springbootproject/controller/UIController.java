@@ -12,6 +12,11 @@ public class UIController {
     @Autowired
     private UserRepository userRepository;
 
+    @GetMapping("/")
+    public String redirectToUsers() {
+        return "redirect:/users";
+    }
+
     @GetMapping("/users")
     public String showUsers(Model model) {
         model.addAttribute("users", userRepository.findAll());
